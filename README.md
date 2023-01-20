@@ -1,13 +1,18 @@
 
 
+# Testing while using pickle
 
+In this repository we are going to see how to use pickle when pytesting our code. And solve a problem that sometimes occurs.
+
+
+## Procedure
 
 First we run `Code_to_test.py` in order to create pickles in our data directory
 ```
 python Code_to_test.py
 ```
 
-with that we have the file `trajectory0.pkl` and `trajectory5.pkl` in the data folder
+With that we have the files `trajectory0.pkl` and `trajectory5.pkl` in the data folder
 
 Next we are going to test the method `do_something`
 
@@ -17,9 +22,22 @@ so from the base directory we do
 pytest -v -s
 ```
 
-When `Code_to_test.py` simply create the pickles everything goes fine
+When `Code_to_test.py` simply created the pickles like
 
-Then we modified it so that the creating is done from `__main__`
+```
+DataProcessing(5)
+
+DataProcessing(0)
+```
+everything goes fine, but now we modified it so that the creating is done from `__main__` as in
+
+```
+if __name__ == "__main__":
+    DataProcessing(5)
+
+    DataProcessing(0)
+```
+
 and we do the steps described above again
 
 This time we get an error
@@ -44,3 +62,5 @@ ERROR myunittest/test_one.py - AttributeError: Can't get attribute 'Trajectory' 
 ```
 
 How can we solve this??
+
+To see the solution git checkout to the `solution` branch
