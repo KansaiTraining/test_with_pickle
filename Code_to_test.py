@@ -22,7 +22,9 @@ def DataProcessing(number):
     with open(output_f, 'wb') as f:
         pickle.dump(trj, f, pickle.HIGHEST_PROTOCOL)
 
-DataProcessing(5)
 
-DataProcessing(0)
 
+if __name__ == "__main__":
+    DataProcessing(5)
+
+    DataProcessing(0)
