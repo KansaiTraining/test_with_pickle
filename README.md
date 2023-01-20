@@ -64,4 +64,14 @@ ERROR myunittest/test_one.py - AttributeError: Can't get attribute 'Trajectory' 
 
 How can we solve this??
 
-To see the solution git checkout to the `solution` branch
+The problem is that pickle saves the objects relative to where it were saved.
+In the first case it was saved right starting the execution of `Code_to_test.py` but 
+in the second case, it was saved relative to `__main__`
+
+To load the same object we had to provide the same environment so we did
+
+```
+import __main__
+__main__.Trajectory=Trajectory
+```
+

@@ -1,7 +1,9 @@
 import pickle
 from pytest import mark, param
 from Code_to_test import Trajectory
+import __main__
 
+__main__.Trajectory=Trajectory
 
 def get_trajectory():
     test_cases = [
